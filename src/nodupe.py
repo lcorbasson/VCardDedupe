@@ -190,6 +190,7 @@ def main():
         print "args:"+i
     
     files = args
+    allContacts = []
     for f in files:
         print "file:"+f
         try:
@@ -199,14 +200,13 @@ def main():
             sys.exit(2)  
             
     myContacts=dedupe(allContacts)
-    outfile = open("rubrica_parsata.vcf","w+")
-    print "stampalo"
+    outfile = open("deduped_addressbook.vcf","w+")
+    print "Creating new addressbook: deduped_addressbook.vcf"
     for i in myContacts:
         #print i.serialize()
         outfile.write(i.serialize())
+    print "done"
             
-
-    outfile.write(i.serialize())
         
 if __name__ == "__main__":
     main()
